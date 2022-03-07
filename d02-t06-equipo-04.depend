@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1646620708 source:c:\users\moise\desktop\6to\computación tolerante a fallas\d02-t06-equipo-04\main.cpp
+	<iostream>
+	<cmath>
+	<string>
+
