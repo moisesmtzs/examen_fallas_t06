@@ -1,18 +1,75 @@
+/*
+Martinez Sanchez Moises
+                                                    S
+                                                     E
+                                                      C
+                                                       C
+                                                        I
+                                                         O
+                                                          N
+                                                           D
+                                                            0
+                                                             2
+
+ ----- EN CASO DE NO COMPILAR, ES NECESARIO EN LAS "BUILD OPTIONS" DEL PROYECTO ELEGIR LA VERSION -STD=C++11 -----
+ ----- ESPECIFICAMENTE, "HAVE G++ FOLLOW THE C++ 11 ISO C++ LANGUAGE STANDARD [-STD=C++11]" -----
+*/
+
 #include "hamming.h"
+
+unsigned int bin_to_dec( string temp, int n ) {
+
+    unsigned int counter = 0;
+    for ( int i = n-1, j=0; i >= 0; i--, j++ ) if ( temp[i] == '1') counter+=pow(2,j);
+    return counter;
+
+}
+
+string int_to_bin( char bit, int n ) {
+
+    string temp = "";
+    for ( int i = n-1; i >= 0; i-- ) temp+= ( (bit & ( 1 << i )) ? '1' : '0' );
+    return temp;
+
+}
 
 int main() {
 
-    char choice;
+    char o;
     do {
-        Hamming a;
-        cout << "Emisor : " << endl;
-        a.generate();
-        cout << endl << "Receptor : " << endl;
-        a.correct();
-        cout << endl << "Introducir otro codigo ? (Y/N) : ";
-        cin >> choice;
+        string word, binWord, finalWord;
+        Hamming hamming;
+        system("cls");
+        cout << "------------------EXAMEN DE COMPUTACION TOLERANTE A FALLAS------------------" << endl << endl;
+
+        // LADO DEL "EMISOR"
+        cout << "Ingresa una palabra: ";
+        getline( cin, word );
+        cin.ignore();
+        for ( int i = 0; i < word.length(); i++ ) {
+
+            binWord = int_to_bin( word[i], 8 );
+            hamming.generate(binWord);
+
+        }
+        // hamming.create(word);
+
+
+        /*cout << "Codigo de Hamming para la palabra ingresada es: " << hamming.getCode() << endl;
+
+        // LADO DEL "RECEPTOR"
+        cout << endl << "Ingresa la cadena binaria en Hamming: ";
+        getline( cin, word );
+        cin.ignore();
+
+*/
+        system("PAUSE");
+        cout << endl << "Intentar de nuevo? (N para salir) : ";
+        cin >> o;
+        cin.ignore();
         cout << endl;
-    } while ( choice == 'y' || choice == 'Y' );
+    } while ( o != 'n' && o != 'N' );
 
     return 0;
+
 }
