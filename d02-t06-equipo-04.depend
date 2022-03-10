@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1646792662 source:c:\users\moise\desktop\6to\computación tolerante a fallas\d02-t06-equipo-04\main.cpp
-	"hamming.cpp"
+1646876707 source:c:\users\moise\desktop\6to\computación tolerante a fallas\d02-t06-equipo-04\main.cpp
+	"hamming.h"
 
-1646784376 c:\users\moise\desktop\6to\computación tolerante a fallas\d02-t06-equipo-04\include\hamming.h
+1646878958 c:\users\moise\desktop\6to\computación tolerante a fallas\d02-t06-equipo-04\include\hamming.h
 	<iostream>
 	<fstream>
 	<math.h>

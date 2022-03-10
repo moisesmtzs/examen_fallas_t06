@@ -17,21 +17,7 @@ Martinez Sanchez Moises
 
 #include "hamming.h"
 
-unsigned int bin_to_dec( string temp, int n ) {
-
-    unsigned int counter = 0;
-    for ( int i = n-1, j=0; i >= 0; i--, j++ ) if ( temp[i] == '1') counter+=pow(2,j);
-    return counter;
-
-}
-
-string int_to_bin( char bit, int n ) {
-
-    string temp = "";
-    for ( int i = n-1; i >= 0; i-- ) temp+= ( (bit & ( 1 << i )) ? '1' : '0' );
-    return temp;
-
-}
+string int_to_bin( char bit, int n );
 
 int main() {
 
@@ -52,10 +38,10 @@ int main() {
             hamming.generate(binWord);
 
         }
-        // hamming.create(word);
+        cout << "Codigo de Hamming para la palabra ingresada es: " << hamming.code << endl << endl;
 
-
-        /*cout << "Codigo de Hamming para la palabra ingresada es: " << hamming.getCode() << endl;
+        hamming.correct();
+        /*
 
         // LADO DEL "RECEPTOR"
         cout << endl << "Ingresa la cadena binaria en Hamming: ";
@@ -71,5 +57,13 @@ int main() {
     } while ( o != 'n' && o != 'N' );
 
     return 0;
+
+}
+
+string int_to_bin( char bit, int n ) {
+
+    string temp = "";
+    for ( int i = n-1; i >= 0; i-- ) temp+= ( (bit & ( 1 << i )) ? '1' : '0' );
+    return temp;
 
 }
